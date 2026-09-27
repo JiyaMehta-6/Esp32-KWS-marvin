@@ -1,3 +1,5 @@
+<h1 align="center">🎤 KWS Voice Activator</h1>
+
 <p align="center">
   <img src="https://img.shields.io/badge/ESP32-D0WD--V3-blue?style=for-the-badge&logo=espressif" alt="ESP32">
   <img src="https://img.shields.io/badge/TensorFlow-Lite%20Micro-orange?style=for-the-badge&logo=tensorflow" alt="TFLite Micro">
@@ -5,7 +7,6 @@
   <img src="https://img.shields.io/badge/License-GPLv3-blue?style=for-the-badge" alt="License">
 </p>
 
-<h1 align="center">🎤 KWS Voice Activator</h1>
 
 <p align="center">
   <b>Real-time keyword spotting on ESP32 with INMP441 microphone</b><br>
@@ -18,13 +19,13 @@
 
 | Metric | Value |
 |--------|-------|
-| 🔋 Model Size | **18 KB** (INT8 quantized) |
-| ⚡ Inference Time | **~19ms** per frame on ESP32 @ 240MHz |
-| 🧠 Parameters | **6,145** |
-| 📊 Accuracy | **98.3%** on Google Speech Commands V2 |
-| 💾 Flash Usage | **< 350 KB** total firmware |
-| 🛋️ RAM Usage | **~150 KB** (idle detection) |
-| 🎯 Detection | **DS-CNN** architecture with sliding window voting |
+|  Model Size | **18 KB** (INT8 quantized) |
+|  Inference Time | **~19ms** per frame on ESP32 @ 240MHz |
+|  Parameters | **6,145** |
+|  Accuracy | **98.3%** on Google Speech Commands V2 |
+|  Flash Usage | **< 350 KB** total firmware |
+|  RAM Usage | **~150 KB** (idle detection) |
+|  Detection | **DS-CNN** architecture with sliding window voting |
 
 ---
 
@@ -58,7 +59,7 @@
 
 ```
 ┌─────────────┐     ┌──────────┐     ┌──────────┐     ┌──────────┐     ┌────────────┐
-│  INMP441    │────▶│  I2S DMA │────▶│   MFCC   │────▶│ DS-CNN   │────▶│  Detection │
+│  INMP441    │───▶│  I2S DMA  │───▶│   MFCC   │───▶│ DS-CNN    │────▶│  Detection │
 │  Microphone │     │  Capture │     │ Features │     │  Model   │     │   FSM      │
 └─────────────┘     └──────────┘     └──────────┘     └──────────┘     └────────────┘
       16kHz              10ms             49×12           INT8              State
@@ -242,15 +243,10 @@ Edit `firmware/include/config.h`:
 | Audio quality poor | Check wiring, ensure 3.3V, verify L/R→GND |
 | Build fails | Run `pio run --target clean` first |
 
----
-
-## 📜 License
-
-MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [Google Speech Commands Dataset](https://www.tensorflow.org/datasets/catalog/speech_commands)
 - [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers)
