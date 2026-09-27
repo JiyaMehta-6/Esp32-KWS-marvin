@@ -12,7 +12,7 @@
   Say <b>"marvin"</b> to trigger detection — runs entirely on-device at <b><20ms inference</b>
 </p>
 
----
+
 
 ## ✨ Highlights
 
@@ -26,7 +26,7 @@
 | RAM Usage | **~150 KB** (idle detection) |
 | Detection | **DS-CNN** architecture with sliding window voting |
 
----
+
 
 ## ✅ Build Plan Constraints (All Met)
 
@@ -52,7 +52,7 @@
 | 0.92 | 76.2% | 0.18% | Low FAR |
 | 0.95 | 66.7% | 0.04% | Conservative |
 
----
+
 
 ## 🏗️ Architecture
 
@@ -86,7 +86,7 @@ flowchart LR
 4. **Sliding Window** — 3-of-5 voting reduces false triggers
 5. **State Machine** — Idle → Detected → Cooldown (3s) prevents repeated triggers
 
----
+
 
 ## ⚠️ Real-World Performance Disclaimer
 
@@ -116,7 +116,7 @@ flowchart LR
 
 > **Bottom line:** Treat the reported 98.3% accuracy as an *upper bound* under ideal conditions. Always validate on your specific hardware and environment before deploying.
 
----
+
 
 ## 🔌 Hardware Wiring
 
@@ -134,7 +134,7 @@ INMP441          ESP32
 
 > ⚠️ **Important**: Use 3.3V only. Do NOT connect to 5V.
 
----
+
 
 ## 🚀 Quick Start
 
@@ -163,7 +163,7 @@ python -m platformio device monitor --port COM4 --baud 115200
 *** DETECTED *** marvin=0.947 window=3/5 infer=19231us ***
 ```
 
----
+
 
 ## 📊 Model Performance
 
@@ -186,7 +186,7 @@ Threshold | Recall | False Positive Rate
    0.95   |  0.67  |      0.001
 ```
 
----
+
 
 ## 🧪 Training
 
@@ -211,7 +211,7 @@ python train_v18.py
 - **MFCC Augmentation** — Gaussian noise, time/freq masking, mixup
 - **INT8 Quantization** — Post-training quantization (18 KB model)
 
----
+
 
 ## 📁 Project Structure
 
@@ -241,7 +241,7 @@ python train_v18.py
     └── architecture.md        # Detailed architecture
 ```
 
----
+
 
 ## ⚙️ Configuration
 
@@ -255,7 +255,7 @@ Edit `firmware/include/config.h`:
 #define COOLDOWN_MS       3000     // Cooldown after detection (ms)
 ```
 
----
+
 
 ## 🔧 Customization
 
@@ -273,7 +273,7 @@ Edit `firmware/include/config.h`:
 2. Adjust `CLASS_MARVIN` in config.h
 3. Retrain and re-export
 
----
+
 
 ## 🐛 Troubleshooting
 
@@ -285,7 +285,7 @@ Edit `firmware/include/config.h`:
 | Audio quality poor | Check wiring, ensure 3.3V, verify L/R→GND |
 | Build fails | Run `pio run --target clean` first |
 
----
+
 
 ## 📜 License
 
@@ -303,7 +303,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 ```
 
----
+
 
 ## 🙏 Acknowledgments
 
@@ -312,7 +312,7 @@ GNU General Public License for more details.
 - [ESP-IDF](https://docs.espressif.com/projects/esp-idf/)
 - [INMP441 Datasheet](https://www.invensense.com/wp-content/uploads/2015/12/INMP441-datasheet.pdf)
 
----
+
 
 <p align="center">
   Built with ❤️ for edge AI
