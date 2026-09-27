@@ -33,12 +33,12 @@
 
 | # | Constraint | Target | Achieved | Status |
 |---|------------|--------|----------|--------|
-| 1 | **Accuracy** | >95% | 98.3% | ✅ PASS |
-| 2 | **Inference Latency** | <20ms | ~19ms | ✅ PASS |
-| 3 | **Flash Usage** | <350 KB | ~321 KB | ✅ PASS |
-| 4 | **RAM Idle** | <256 KB | ~150 KB | ✅ PASS |
-| 5 | **False Accept Rate** | <1% | ~0.3% (th=0.90) | ✅ PASS* |
-| 6 | **End-to-End Latency** | <300ms | ~40ms (I2S+MFCC+NN) | ✅ PASS |
+| 1 | **Accuracy** | >95% | 98.3% |  PASS |
+| 2 | **Inference Latency** | <20ms | ~19ms |  PASS |
+| 3 | **Flash Usage** | <350 KB | ~321 KB |  PASS |
+| 4 | **RAM Idle** | <256 KB | ~150 KB |  PASS |
+| 5 | **False Accept Rate** | <1% | ~0.3% (th=0.90) |  PASS* |
+| 6 | **End-to-End Latency** | <300ms | ~40ms (I2S+MFCC+NN) |  PASS |
 
 *\*With energy gate (RMS≥150) and sliding window voting (3/5). Threshold tunable per use-case.*
 
@@ -57,13 +57,17 @@
 
 ## 🏗️ Architecture
 
-```
-┌─────────────┐     ┌──────────┐     ┌──────────┐     ┌──────────┐     ┌────────────┐
-│  INMP441    │───▶│  I2S DMA  │───▶│   MFCC   │───▶│ DS-CNN    │────▶│  Detection │
-│  Microphone │     │  Capture │     │ Features │     │  Model   │     │   FSM      │
-└─────────────┘     └──────────┘     └──────────┘     └──────────┘     └────────────┘
-      16kHz              10ms             49×12           INT8              State
-     Mono               Hops            MFCCs          Quantized         Machine
+```mermaid
+flowchart LR
+    A[INMP441 Microphone] --> B[I2S DMA Capture]
+    B --> C[MFCC Features 49×12]
+    C --> D[DS-CNN Model INT8]
+    D --> E[Detection FSM 3/5 Voting]
+    E --> F{Keyword?}
+    F -->|Yes| G[*** DETECTED ***]
+    F -->|No| B
+    G --> H[Cooldown 3s]
+    H --> B
 ```
 
 ### Pipeline
