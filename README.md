@@ -28,7 +28,7 @@
 
 
 
-## ✅ Build Plan Constraints (All Met)
+##  Build Plan Constraints (All Met)
 
 | # | Constraint | Target | Achieved | Status |
 |---|------------|--------|----------|--------|
@@ -43,7 +43,7 @@
 
 ---
 
-## 📈 Detection Performance (Test Set)
+##  Detection Performance (Test Set)
 
 | Threshold | Recall | FAR | Notes |
 |-----------|--------|-----|-------|
@@ -54,7 +54,7 @@
 
 
 
-## 🏗️ Architecture
+##  Architecture
 
 ```mermaid
 flowchart LR
@@ -88,7 +88,7 @@ flowchart LR
 
 
 
-## ⚠️ Real-World Performance Disclaimer
+##  Real-World Performance Disclaimer
 
 > **The benchmark metrics above are measured on the Google Speech Commands V2 test set — a clean, curated dataset. Real-world deployment on physical hardware introduces significant domain shift that can degrade performance substantially.**
 
@@ -132,11 +132,11 @@ INMP441          ESP32
 └────────┘      └────────┘
 ```
 
-> ⚠️ **Important**: Use 3.3V only. Do NOT connect to 5V.
+>  **Important**: Use 3.3V only. Do NOT connect to 5V.
 
 
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -165,7 +165,7 @@ python -m platformio device monitor --port COM4 --baud 115200
 
 
 
-## 📊 Model Performance
+##  Model Performance
 
 ### v18 INT8 — Best Model
 
@@ -188,7 +188,7 @@ Threshold | Recall | False Positive Rate
 
 
 
-## 🧪 Training
+##  Training
 
 ### Dataset
 
@@ -213,7 +213,7 @@ python train_v18.py
 
 
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ├── firmware/                  # ESP32 firmware
@@ -243,7 +243,7 @@ python train_v18.py
 
 
 
-## ⚙️ Configuration
+##  Configuration
 
 Edit `firmware/include/config.h`:
 
@@ -257,7 +257,7 @@ Edit `firmware/include/config.h`:
 
 
 
-## 🔧 Customization
+##  Customization
 
 ### Retrain with Your Own Data
 
@@ -275,7 +275,7 @@ Edit `firmware/include/config.h`:
 
 
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
@@ -287,7 +287,7 @@ Edit `firmware/include/config.h`:
 
 
 
-## 📜 License
+##  License
 
 This project is licensed under the **GNU General Public License v3.0** — see [LICENSE](LICENSE) for details.
 
@@ -305,7 +305,7 @@ GNU General Public License for more details.
 
 
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [Google Speech Commands Dataset](https://www.tensorflow.org/datasets/catalog/speech_commands)
 - [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers)
