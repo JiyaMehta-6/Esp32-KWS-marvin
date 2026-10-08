@@ -14,7 +14,7 @@
 
 
 
-## ✨ Highlights
+##  Highlights
 
 | Metric | Value |
 |--------|-------|
